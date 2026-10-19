@@ -1,0 +1,318 @@
+{
+ "schema_version": "1.0",
+ "engine_version": "1.0.0",
+ "analyzed_at": "2026-10-17T05:41:08.583512+00:00",
+ "duration_ms": 1,
+ "url": {
+  "input": "http://203.0.113.5:8080/login",
+  "scheme": "http",
+  "host": "203.0.113.5",
+  "unicode_host": "203.0.113.5",
+  "registered_domain": "203.0.113.5",
+  "tld": "",
+  "port": 8080,
+  "path": "/login",
+  "query": "",
+  "is_ip": true
+ },
+ "modules": {
+  "url": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "homograph": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "typosquatting": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "domain": {
+   "status": "skipped",
+   "duration_ms": 0,
+   "reason": "host_is_ip_address"
+  },
+  "tls": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "website": {
+   "status": "failed",
+   "duration_ms": 0,
+   "error": "private_address"
+  },
+  "reputation": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "brand": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "ml": {
+   "status": "skipped",
+   "duration_ms": 0,
+   "reason": "no_model"
+  }
+ },
+ "url_analysis": {
+  "length": 29,
+  "hostname_length": 11,
+  "num_dots": 3,
+  "hostname_dots": 3,
+  "subdomain_count": 0,
+  "subdomains": [],
+  "registered_domain": "203.0.113.5",
+  "tld": "",
+  "special_char_count": 0,
+  "special_chars": {},
+  "has_at_symbol": false,
+  "at_symbol_count": 0,
+  "is_ip_host": true,
+  "ip_format": "dotted_quad",
+  "port": 8080,
+  "non_standard_port": true,
+  "suspicious_port": false,
+  "url_encoding": {
+   "encoded_char_count": 0,
+   "in_host": false,
+   "double_encoded": false
+  },
+  "hex_encoding": {
+   "hex_sequences": 0,
+   "hex_ip_host": false,
+   "samples": []
+  },
+  "hyphen_count": 0,
+  "hostname_hyphen_count": 0,
+  "excessive_hyphens": false,
+  "suspicious_keywords": [
+   "login"
+  ],
+  "is_shortener": false,
+  "suspicious_tld": false,
+  "uses_https": false,
+  "path": {
+   "length": 6,
+   "depth": 1,
+   "has_double_slash": false,
+   "executable_extension": false,
+   "entropy": 2.585,
+   "looks_like_cms_probe": false
+  },
+  "query": {
+   "length": 0,
+   "param_count": 0,
+   "redirect_params": [],
+   "has_base64_like_value": false,
+   "long_values": 0
+  },
+  "findings": [
+   {
+    "id": "ip_host",
+    "severity": "high",
+    "detail": "Host is an IP address (dotted_quad) instead of a domain name"
+   },
+   {
+    "id": "non_standard_port",
+    "severity": "low",
+    "detail": "Non-standard port 8080"
+   },
+   {
+    "id": "suspicious_keywords",
+    "severity": "low",
+    "detail": "Keywords: login"
+   }
+  ]
+ },
+ "domain_analysis": {
+  "dns": null,
+  "registration": null,
+  "findings": [],
+  "status": "skipped",
+  "reason": "host_is_ip_address"
+ },
+ "tls_analysis": {
+  "status": "ok",
+  "https": false,
+  "certificate_valid": null,
+  "hostname_match": null,
+  "issuer": null,
+  "expires_at": null,
+  "findings": [
+   {
+    "id": "no_https",
+    "severity": "medium",
+    "detail": "The URL does not use HTTPS"
+   }
+  ]
+ },
+ "website_analysis": {
+  "status": "failed",
+  "fetched": false,
+  "error": "private_address",
+  "final_url": null,
+  "http_status": null,
+  "content_type": null,
+  "tls_verified": null,
+  "redirects": {
+   "count": 0,
+   "chain": [],
+   "cross_domain": false,
+   "ends_on_different_domain": false
+  },
+  "is_download": false,
+  "findings": []
+ },
+ "typosquatting": {
+  "candidate": "203.0.113.5",
+  "registered_domain": "203.0.113.5",
+  "is_typosquat": false,
+  "matches": [],
+  "best": null
+ },
+ "homograph": {
+  "is_idn": false,
+  "punycode_labels": [],
+  "unicode_host": "203.0.113.5",
+  "ascii_host": "203.0.113.5",
+  "contains_non_ascii": false,
+  "scripts_by_label": {
+   "203": [],
+   "0": [],
+   "113": [],
+   "5": []
+  },
+  "mixed_script_labels": [],
+  "whole_script_confusable": false,
+  "hidden_characters": [],
+  "skeleton": null,
+  "brand_matches": [],
+  "is_suspicious": false
+ },
+ "brand_impersonation": {
+  "is_impersonation_suspected": false,
+  "score": 0,
+  "verified_brand_domain": null,
+  "targets": []
+ },
+ "threat_intelligence": [
+  {
+   "provider": "LocalHeuristics",
+   "reputation": "Unknown",
+   "is_known_malicious": false,
+   "threat_category": null,
+   "detail": "0 risk indicator(s)"
+  }
+ ],
+ "reputation": {
+  "rating": "Unknown",
+  "indicators": []
+ },
+ "ml": null,
+ "risk": {
+  "score": 32,
+  "level": "Low",
+  "category": "Legitimate",
+  "method": "heuristic",
+  "heuristic_score": 32,
+  "ml_weight": 0.0,
+  "summary": "Minor anomalies were found; normal caution applies.",
+  "factors": [
+   {
+    "id": "ip_host",
+    "group": "url",
+    "points": 18,
+    "severity": "High",
+    "detail": "Host is an IP address (dotted_quad) instead of a domain name",
+    "icon": "\ud83e\uddf1"
+   },
+   {
+    "id": "no_https",
+    "group": "tls",
+    "points": 8,
+    "severity": "Medium",
+    "detail": "The URL does not use HTTPS",
+    "icon": "\ud83d\udd12"
+   },
+   {
+    "id": "non_standard_port",
+    "group": "url",
+    "points": 3,
+    "severity": "Low",
+    "detail": "Non-standard port 8080",
+    "icon": "\ud83e\uddf1"
+   },
+   {
+    "id": "suspicious_keywords",
+    "group": "url",
+    "points": 3,
+    "severity": "Low",
+    "detail": "Keywords: login",
+    "icon": "\ud83e\uddf1"
+   }
+  ],
+  "mitigating_factors": [],
+  "hard_evidence": [],
+  "indicators": [
+   {
+    "icon": "\ud83e\uddf1",
+    "text": "Host is an IP address (dotted_quad) instead of a domain name",
+    "detail": "ip host",
+    "sev": "High"
+   },
+   {
+    "icon": "\ud83d\udd12",
+    "text": "The URL does not use HTTPS",
+    "detail": "no https",
+    "sev": "Medium"
+   },
+   {
+    "icon": "\ud83e\uddf1",
+    "text": "Non-standard port 8080",
+    "detail": "non standard port",
+    "sev": "Low"
+   },
+   {
+    "icon": "\ud83e\uddf1",
+    "text": "Keywords: login",
+    "detail": "suspicious keywords",
+    "sev": "Low"
+   }
+  ]
+ },
+ "recommendations": [
+  {
+   "icon": "\u2705",
+   "title": "No action required",
+   "description": "No significant risk indicators were found.",
+   "priority": "Low",
+   "sort_order": 0
+  },
+  {
+   "icon": "\ud83e\udde9",
+   "title": "Keep your browser updated",
+   "description": "Updates add Safe Browsing improvements.",
+   "priority": "Low",
+   "sort_order": 1
+  }
+ ],
+ "security_features": {
+  "domain_age_days": null,
+  "whois_privacy": null,
+  "dns_resolves": null,
+  "nameserver_count": null,
+  "tls_valid": null,
+  "tls_cert_age_days": null,
+  "tls_hostname_match": null,
+  "redirect_count": null,
+  "has_login_form": null,
+  "has_password_field": null,
+  "external_form_action": null,
+  "iframe_count": null,
+  "hidden_element_count": null,
+  "has_suspicious_scripts": null,
+  "threat_feed_hits": 0
+ }
+}

@@ -1,0 +1,343 @@
+{
+ "schema_version": "1.0",
+ "engine_version": "1.0.0",
+ "analyzed_at": "2026-10-17T05:41:08.582470+00:00",
+ "duration_ms": 8,
+ "url": {
+  "input": "http://xn--80ak6aa92e.com/%41%42%43%44%45",
+  "scheme": "http",
+  "host": "xn--80ak6aa92e.com",
+  "unicode_host": "\u0430\u0440\u0440\u04cf\u0435.com",
+  "registered_domain": "xn--80ak6aa92e.com",
+  "tld": "com",
+  "port": null,
+  "path": "/%41%42%43%44%45",
+  "query": "",
+  "is_ip": false
+ },
+ "modules": {
+  "url": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "homograph": {
+   "status": "ok",
+   "duration_ms": 3
+  },
+  "typosquatting": {
+   "status": "ok",
+   "duration_ms": 4
+  },
+  "domain": {
+   "status": "skipped",
+   "duration_ms": 0,
+   "reason": "network_disabled"
+  },
+  "tls": {
+   "status": "skipped",
+   "duration_ms": 0,
+   "reason": "network_disabled"
+  },
+  "website": {
+   "status": "skipped",
+   "duration_ms": 0,
+   "reason": "network_disabled"
+  },
+  "reputation": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "brand": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "ml": {
+   "status": "skipped",
+   "duration_ms": 0,
+   "reason": "no_model"
+  }
+ },
+ "url_analysis": {
+  "length": 41,
+  "hostname_length": 18,
+  "num_dots": 1,
+  "hostname_dots": 1,
+  "subdomain_count": 0,
+  "subdomains": [],
+  "registered_domain": "xn--80ak6aa92e.com",
+  "tld": "com",
+  "special_char_count": 5,
+  "special_chars": {
+   "%": 5
+  },
+  "has_at_symbol": false,
+  "at_symbol_count": 0,
+  "is_ip_host": false,
+  "ip_format": null,
+  "port": null,
+  "non_standard_port": false,
+  "suspicious_port": false,
+  "url_encoding": {
+   "encoded_char_count": 5,
+   "in_host": false,
+   "double_encoded": false
+  },
+  "hex_encoding": {
+   "hex_sequences": 0,
+   "hex_ip_host": false,
+   "samples": []
+  },
+  "hyphen_count": 2,
+  "hostname_hyphen_count": 2,
+  "excessive_hyphens": false,
+  "suspicious_keywords": [],
+  "is_shortener": false,
+  "suspicious_tld": false,
+  "uses_https": false,
+  "path": {
+   "length": 16,
+   "depth": 1,
+   "has_double_slash": false,
+   "executable_extension": false,
+   "entropy": 2.305,
+   "looks_like_cms_probe": false
+  },
+  "query": {
+   "length": 0,
+   "param_count": 0,
+   "redirect_params": [],
+   "has_base64_like_value": false,
+   "long_values": 0
+  },
+  "findings": [
+   {
+    "id": "heavy_url_encoding",
+    "severity": "medium",
+    "detail": "5 percent-encoded characters"
+   }
+  ]
+ },
+ "domain_analysis": {
+  "dns": null,
+  "registration": null,
+  "findings": [],
+  "status": "skipped",
+  "reason": "network_disabled"
+ },
+ "tls_analysis": {
+  "status": "skipped",
+  "https": null,
+  "certificate_valid": null,
+  "hostname_match": null,
+  "issuer": null,
+  "expires_at": null,
+  "findings": [],
+  "reason": "network_disabled"
+ },
+ "website_analysis": {
+  "status": "skipped",
+  "fetched": false,
+  "findings": [],
+  "reason": "network_disabled"
+ },
+ "typosquatting": {
+  "candidate": "xn--80ak6aa92e",
+  "registered_domain": "xn--80ak6aa92e.com",
+  "is_typosquat": false,
+  "matches": [],
+  "best": null
+ },
+ "homograph": {
+  "is_idn": true,
+  "punycode_labels": [
+   "xn--80ak6aa92e"
+  ],
+  "unicode_host": "\u0430\u0440\u0440\u04cf\u0435.com",
+  "ascii_host": "xn--80ak6aa92e.com",
+  "contains_non_ascii": true,
+  "scripts_by_label": {
+   "\u0430\u0440\u0440\u04cf\u0435": [
+    "CYRILLIC"
+   ],
+   "com": [
+    "LATIN"
+   ]
+  },
+  "mixed_script_labels": [],
+  "whole_script_confusable": true,
+  "hidden_characters": [],
+  "skeleton": "apple",
+  "brand_matches": [
+   {
+    "brand": "Apple",
+    "brand_label": "apple",
+    "skeleton": "apple",
+    "technique": "confusable_characters"
+   }
+  ],
+  "is_suspicious": true
+ },
+ "brand_impersonation": {
+  "is_impersonation_suspected": true,
+  "score": 90,
+  "verified_brand_domain": null,
+  "targets": [
+   {
+    "brand": "Apple",
+    "sector": "tech",
+    "signals": [
+     {
+      "id": "homograph",
+      "weight": 90,
+      "detail": "Look-alike characters spell 'apple'"
+     }
+    ],
+    "metrics": {
+     "levenshtein_similarity": 0.1429,
+     "jaro_winkler": 0.4238,
+     "ngram_similarity": 0.0,
+     "similarity": 0.2055,
+     "technique": null
+    },
+    "score": 90,
+    "official_domains": [
+     "apple.com",
+     "icloud.com",
+     "me.com"
+    ]
+   }
+  ]
+ },
+ "threat_intelligence": [
+  {
+   "provider": "LocalHeuristics",
+   "reputation": "Unknown",
+   "is_known_malicious": false,
+   "threat_category": null,
+   "detail": "0 risk indicator(s)"
+  }
+ ],
+ "reputation": {
+  "rating": "Unknown",
+  "indicators": []
+ },
+ "ml": null,
+ "risk": {
+  "score": 70,
+  "level": "High",
+  "category": "Brand Impersonation",
+  "method": "heuristic",
+  "heuristic_score": 70,
+  "ml_weight": 0.0,
+  "summary": "Strong phishing characteristics were detected.",
+  "factors": [
+   {
+    "id": "brand_impersonation",
+    "group": "brand",
+    "points": 40.5,
+    "severity": "High",
+    "detail": "Possible impersonation of Apple (homograph)",
+    "icon": "\ud83c\udff7"
+   },
+   {
+    "id": "homograph_whole_script",
+    "group": "homograph",
+    "points": 25,
+    "severity": "High",
+    "detail": "Whole label uses non-Latin look-alike letters",
+    "icon": "\ud83d\udd24"
+   },
+   {
+    "id": "heavy_url_encoding",
+    "group": "url",
+    "points": 5,
+    "severity": "Low",
+    "detail": "5 percent-encoded characters",
+    "icon": "\ud83e\uddf1"
+   }
+  ],
+  "mitigating_factors": [],
+  "hard_evidence": [],
+  "indicators": [
+   {
+    "icon": "\ud83c\udff7",
+    "text": "Possible impersonation of Apple (homograph)",
+    "detail": "brand impersonation",
+    "sev": "High"
+   },
+   {
+    "icon": "\ud83d\udd24",
+    "text": "Whole label uses non-Latin look-alike letters",
+    "detail": "homograph whole script",
+    "sev": "High"
+   },
+   {
+    "icon": "\ud83e\uddf1",
+    "text": "5 percent-encoded characters",
+    "detail": "heavy url encoding",
+    "sev": "Low"
+   }
+  ]
+ },
+ "recommendations": [
+  {
+   "icon": "\ud83d\udeab",
+   "title": "Do not enter credentials",
+   "description": "Never submit passwords, one-time codes or card data on this site.",
+   "priority": "High",
+   "sort_order": 0
+  },
+  {
+   "icon": "\ud83d\udce5",
+   "title": "Do not download files",
+   "description": "Avoid any automatic or prompted downloads from this domain.",
+   "priority": "High",
+   "sort_order": 1
+  },
+  {
+   "icon": "\u26d4",
+   "title": "Block the URL",
+   "description": "Add the domain to your email and web gateway blocklists.",
+   "priority": "High",
+   "sort_order": 2
+  },
+  {
+   "icon": "\ud83d\udce3",
+   "title": "Report the website",
+   "description": "Submit to your IT/security team and to phishing report services.",
+   "priority": "Medium",
+   "sort_order": 3
+  },
+  {
+   "icon": "\ud83d\udd0e",
+   "title": "Verify the domain",
+   "description": "Open the real service by typing its address manually instead of using this link.",
+   "priority": "High",
+   "sort_order": 4
+  },
+  {
+   "icon": "\ud83d\udd24",
+   "title": "Check for look-alike characters",
+   "description": "The domain contains characters that imitate Latin letters.",
+   "priority": "High",
+   "sort_order": 5
+  }
+ ],
+ "security_features": {
+  "domain_age_days": null,
+  "whois_privacy": null,
+  "dns_resolves": null,
+  "nameserver_count": null,
+  "tls_valid": null,
+  "tls_cert_age_days": null,
+  "tls_hostname_match": null,
+  "redirect_count": null,
+  "has_login_form": null,
+  "has_password_field": null,
+  "external_form_action": null,
+  "iframe_count": null,
+  "hidden_element_count": null,
+  "has_suspicious_scripts": null,
+  "threat_feed_hits": 0
+ }
+}

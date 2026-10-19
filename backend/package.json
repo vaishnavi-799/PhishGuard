@@ -1,0 +1,32 @@
+{
+ "name": "phishguard-backend",
+ "version": "0.1.0",
+ "private": true,
+ "main": "src/server.js",
+ "engines": {
+  "node": ">=18.11"
+ },
+ "scripts": {
+  "dev": "node --watch src/server.js",
+  "start": "node src/server.js",
+  "db:migrate": "node src/db/migrate.js up",
+  "db:status": "node src/db/migrate.js status",
+  "db:reset": "node src/db/migrate.js reset",
+  "db:seed": "node src/db/seed.js",
+  "test": "node --test --test-concurrency=1",
+  "test:unit": "node --test tests/unit/analysisMapper.test.js tests/unit/analysisClient.test.js tests/unit/scanJobs.test.js tests/unit/reportBuilder.test.js tests/unit/threatService.test.js tests/unit/attachmentService.test.js tests/unit/reportService.test.js"
+ },
+ "dependencies": {
+  "bcryptjs": "^2.4.3",
+  "cors": "^2.8.5",
+  "dotenv": "^16.4.5",
+  "express": "^4.19.2",
+  "express-rate-limit": "^7.4.0",
+  "helmet": "^7.1.0",
+  "jsonwebtoken": "^9.0.2",
+  "morgan": "^1.10.0",
+  "multer": "^1.4.5-lts.1",
+  "pg": "^8.12.0",
+  "zod": "^3.23.8"
+ }
+}

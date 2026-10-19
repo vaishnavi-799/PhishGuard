@@ -1,0 +1,2 @@
+const r=require('express').Router(),c=require('../controllers/usersController'),v=require('../validators/users'),validate=require('../middleware/validate'),{authenticate}=require('../middleware/auth'),{authLimiter}=require('../middleware/rateLimit');
+r.use(authenticate);r.get('/me',c.me);r.patch('/me',validate(v.updateMe),c.updateMe);r.put('/me/password',authLimiter,validate(v.changePassword),c.changePassword);module.exports=r;

@@ -1,0 +1,360 @@
+{
+ "schema_version": "1.0",
+ "engine_version": "1.0.0",
+ "analyzed_at": "2026-10-17T05:41:08.573848+00:00",
+ "duration_ms": 2,
+ "url": {
+  "input": "https://www.paypal.com/signin",
+  "scheme": "https",
+  "host": "www.paypal.com",
+  "unicode_host": "www.paypal.com",
+  "registered_domain": "paypal.com",
+  "tld": "com",
+  "port": null,
+  "path": "/signin",
+  "query": "",
+  "is_ip": false
+ },
+ "modules": {
+  "url": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "homograph": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "typosquatting": {
+   "status": "ok",
+   "duration_ms": 1
+  },
+  "domain": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "tls": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "website": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "reputation": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "brand": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "ml": {
+   "status": "skipped",
+   "duration_ms": 0,
+   "reason": "no_model"
+  }
+ },
+ "url_analysis": {
+  "length": 29,
+  "hostname_length": 14,
+  "num_dots": 2,
+  "hostname_dots": 2,
+  "subdomain_count": 1,
+  "subdomains": [
+   "www"
+  ],
+  "registered_domain": "paypal.com",
+  "tld": "com",
+  "special_char_count": 0,
+  "special_chars": {},
+  "has_at_symbol": false,
+  "at_symbol_count": 0,
+  "is_ip_host": false,
+  "ip_format": null,
+  "port": null,
+  "non_standard_port": false,
+  "suspicious_port": false,
+  "url_encoding": {
+   "encoded_char_count": 0,
+   "in_host": false,
+   "double_encoded": false
+  },
+  "hex_encoding": {
+   "hex_sequences": 0,
+   "hex_ip_host": false,
+   "samples": []
+  },
+  "hyphen_count": 0,
+  "hostname_hyphen_count": 0,
+  "excessive_hyphens": false,
+  "suspicious_keywords": [
+   "signin"
+  ],
+  "is_shortener": false,
+  "suspicious_tld": false,
+  "uses_https": true,
+  "path": {
+   "length": 7,
+   "depth": 1,
+   "has_double_slash": false,
+   "executable_extension": false,
+   "entropy": 2.236,
+   "looks_like_cms_probe": false
+  },
+  "query": {
+   "length": 0,
+   "param_count": 0,
+   "redirect_params": [],
+   "has_base64_like_value": false,
+   "long_values": 0
+  },
+  "findings": [
+   {
+    "id": "suspicious_keywords",
+    "severity": "low",
+    "detail": "Keywords: signin"
+   }
+  ]
+ },
+ "domain_analysis": {
+  "status": "ok",
+  "dns": {
+   "queried": true,
+   "resolves": true,
+   "rcode": "NOERROR",
+   "a": [
+    {
+     "address": "93.184.216.34",
+     "ttl": 3600
+    }
+   ],
+   "aaaa": [],
+   "cname": [],
+   "nameservers": [
+    "ns1.example.net"
+   ],
+   "mx_count": 0,
+   "min_ttl": 3600,
+   "resolves_to_private_ip": false,
+   "fast_flux_suspected": false,
+   "errors": [],
+   "findings": []
+  },
+  "registration": {
+   "available": true,
+   "age_days": 9000,
+   "registrar": "Example Registrar",
+   "privacy_redacted": false,
+   "registered_at": "2020-01-01T00:00:00+00:00",
+   "expires_at": null,
+   "statuses": [],
+   "nameservers": [],
+   "source": "rdap"
+  },
+  "findings": []
+ },
+ "tls_analysis": {
+  "status": "ok",
+  "https": true,
+  "certificate_valid": true,
+  "chain_trusted": true,
+  "hostname_match": true,
+  "issuer": {
+   "organization": "Test CA",
+   "common_name": "Test CA"
+  },
+  "expires_at": "2027-01-01T00:00:00+00:00",
+  "age_days": 200,
+  "tls_version": "TLSv1.3",
+  "weak_cipher": false,
+  "findings": []
+ },
+ "website_analysis": {
+  "status": "ok",
+  "fetched": true,
+  "final_url": "https://www.paypal.com/signin",
+  "http_status": 200,
+  "content_type": "text/html",
+  "tls_verified": null,
+  "redirects": {
+   "count": 0,
+   "chain": [],
+   "cross_domain": false,
+   "ends_on_different_domain": false
+  },
+  "is_download": false,
+  "truncated": false,
+  "size_bytes": 29,
+  "title": "PayPal: Log in",
+  "site_name": null,
+  "headings": [],
+  "forms": {
+   "count": 0,
+   "items": [],
+   "login_form": false,
+   "external_action": false,
+   "insecure_submit": false
+  },
+  "password_fields": 0,
+  "iframes": {
+   "count": 0,
+   "hidden": 0,
+   "external": 0,
+   "items": []
+  },
+  "hidden_elements": {
+   "hidden_inputs": 0,
+   "styled_hidden": 0,
+   "total": 0
+  },
+  "scripts": {
+   "inline_chars": 0,
+   "external_count": 0,
+   "external_hosts": [],
+   "signals": {},
+   "suspicious_reasons": [],
+   "is_suspicious": false
+  },
+  "client_side_redirect": {
+   "meta_refresh": null,
+   "javascript": false
+  },
+  "right_click_blocked": false,
+  "findings": []
+ },
+ "typosquatting": {
+  "candidate": "paypal",
+  "registered_domain": "paypal.com",
+  "is_typosquat": false,
+  "matches": [],
+  "best": null
+ },
+ "homograph": {
+  "is_idn": false,
+  "punycode_labels": [],
+  "unicode_host": "www.paypal.com",
+  "ascii_host": "www.paypal.com",
+  "contains_non_ascii": false,
+  "scripts_by_label": {
+   "www": [
+    "LATIN"
+   ],
+   "paypal": [
+    "LATIN"
+   ],
+   "com": [
+    "LATIN"
+   ]
+  },
+  "mixed_script_labels": [],
+  "whole_script_confusable": false,
+  "hidden_characters": [],
+  "skeleton": null,
+  "brand_matches": [],
+  "is_suspicious": false
+ },
+ "brand_impersonation": {
+  "is_impersonation_suspected": false,
+  "score": 0,
+  "verified_brand_domain": "PayPal",
+  "targets": []
+ },
+ "threat_intelligence": [
+  {
+   "provider": "LocalHeuristics",
+   "reputation": "Clean",
+   "is_known_malicious": false,
+   "threat_category": null,
+   "detail": "0 risk indicator(s)"
+  }
+ ],
+ "reputation": {
+  "rating": "Good",
+  "indicators": [
+   {
+    "id": "domain_established",
+    "severity": "info",
+    "detail": "Domain registered 24 year(s) ago"
+   }
+  ]
+ },
+ "ml": null,
+ "risk": {
+  "score": 0,
+  "level": "Very Low",
+  "category": "Legitimate",
+  "method": "heuristic",
+  "heuristic_score": 0,
+  "ml_weight": 0.0,
+  "summary": "No significant phishing indicators were found.",
+  "factors": [
+   {
+    "id": "suspicious_keywords",
+    "group": "url",
+    "points": 3,
+    "severity": "Low",
+    "detail": "Keywords: signin",
+    "icon": "\ud83e\uddf1"
+   }
+  ],
+  "mitigating_factors": [
+   {
+    "id": "domain_established",
+    "points": -12,
+    "detail": "Domain is 24 years old"
+   },
+   {
+    "id": "valid_tls",
+    "points": -3,
+    "detail": "Valid, trusted TLS certificate"
+   },
+   {
+    "id": "verified_brand_domain",
+    "points": 0,
+    "detail": "Registered domain officially belongs to PayPal"
+   }
+  ],
+  "hard_evidence": [],
+  "indicators": [
+   {
+    "icon": "\ud83e\uddf1",
+    "text": "Keywords: signin",
+    "detail": "suspicious keywords",
+    "sev": "Low"
+   }
+  ]
+ },
+ "recommendations": [
+  {
+   "icon": "\u2705",
+   "title": "No action required",
+   "description": "No significant risk indicators were found.",
+   "priority": "Low",
+   "sort_order": 0
+  },
+  {
+   "icon": "\ud83e\udde9",
+   "title": "Keep your browser updated",
+   "description": "Updates add Safe Browsing improvements.",
+   "priority": "Low",
+   "sort_order": 1
+  }
+ ],
+ "security_features": {
+  "domain_age_days": 9000,
+  "whois_privacy": 0.0,
+  "dns_resolves": 1.0,
+  "nameserver_count": 1,
+  "tls_valid": 1.0,
+  "tls_cert_age_days": 200,
+  "tls_hostname_match": 1.0,
+  "redirect_count": 0,
+  "has_login_form": 0.0,
+  "has_password_field": 0.0,
+  "external_form_action": 0.0,
+  "iframe_count": 0,
+  "hidden_element_count": 0,
+  "has_suspicious_scripts": 0.0,
+  "threat_feed_hits": 0
+ }
+}

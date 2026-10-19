@@ -1,0 +1,637 @@
+{
+ "schema_version": "1.0",
+ "engine_version": "1.0.0",
+ "analyzed_at": "2026-10-17T05:41:08.563772+00:00",
+ "duration_ms": 154,
+ "url": {
+  "input": "https://paypa1-secure-login.xyz/verify?next=http://evil.com",
+  "scheme": "https",
+  "host": "paypa1-secure-login.xyz",
+  "unicode_host": "paypa1-secure-login.xyz",
+  "registered_domain": "paypa1-secure-login.xyz",
+  "tld": "xyz",
+  "port": null,
+  "path": "/verify",
+  "query": "next=http://evil.com",
+  "is_ip": false
+ },
+ "modules": {
+  "url": {
+   "status": "ok",
+   "duration_ms": 1
+  },
+  "homograph": {
+   "status": "ok",
+   "duration_ms": 1
+  },
+  "typosquatting": {
+   "status": "ok",
+   "duration_ms": 145
+  },
+  "domain": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "tls": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "website": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "reputation": {
+   "status": "ok",
+   "duration_ms": 0
+  },
+  "brand": {
+   "status": "ok",
+   "duration_ms": 3
+  },
+  "ml": {
+   "status": "ok",
+   "duration_ms": 0
+  }
+ },
+ "url_analysis": {
+  "length": 59,
+  "hostname_length": 23,
+  "num_dots": 2,
+  "hostname_dots": 1,
+  "subdomain_count": 0,
+  "subdomains": [],
+  "registered_domain": "paypa1-secure-login.xyz",
+  "tld": "xyz",
+  "special_char_count": 0,
+  "special_chars": {},
+  "has_at_symbol": false,
+  "at_symbol_count": 0,
+  "is_ip_host": false,
+  "ip_format": null,
+  "port": null,
+  "non_standard_port": false,
+  "suspicious_port": false,
+  "url_encoding": {
+   "encoded_char_count": 0,
+   "in_host": false,
+   "double_encoded": false
+  },
+  "hex_encoding": {
+   "hex_sequences": 0,
+   "hex_ip_host": false,
+   "samples": []
+  },
+  "hyphen_count": 2,
+  "hostname_hyphen_count": 2,
+  "excessive_hyphens": false,
+  "suspicious_keywords": [
+   "login",
+   "verify",
+   "secure"
+  ],
+  "is_shortener": false,
+  "suspicious_tld": true,
+  "uses_https": true,
+  "path": {
+   "length": 7,
+   "depth": 1,
+   "has_double_slash": false,
+   "executable_extension": false,
+   "entropy": 2.807,
+   "looks_like_cms_probe": false
+  },
+  "query": {
+   "length": 20,
+   "param_count": 1,
+   "redirect_params": [
+    "next"
+   ],
+   "has_base64_like_value": false,
+   "long_values": 0
+  },
+  "findings": [
+   {
+    "id": "suspicious_keywords",
+    "severity": "medium",
+    "detail": "Keywords: login, verify, secure"
+   },
+   {
+    "id": "redirect_parameter",
+    "severity": "medium",
+    "detail": "Query parameter(s) carry another URL: next"
+   },
+   {
+    "id": "risky_tld",
+    "severity": "low",
+    "detail": "Top-level domain .xyz is heavily abused"
+   }
+  ]
+ },
+ "domain_analysis": {
+  "status": "ok",
+  "dns": {
+   "queried": true,
+   "resolves": true,
+   "rcode": "NOERROR",
+   "a": [
+    {
+     "address": "93.184.216.34",
+     "ttl": 3600
+    }
+   ],
+   "aaaa": [],
+   "cname": [],
+   "nameservers": [
+    "ns1.example.net"
+   ],
+   "mx_count": 0,
+   "min_ttl": 3600,
+   "resolves_to_private_ip": false,
+   "fast_flux_suspected": false,
+   "errors": [],
+   "findings": []
+  },
+  "registration": {
+   "available": true,
+   "age_days": 3,
+   "registrar": "Example Registrar",
+   "privacy_redacted": false,
+   "registered_at": "2020-01-01T00:00:00+00:00",
+   "expires_at": null,
+   "statuses": [],
+   "nameservers": [],
+   "source": "rdap"
+  },
+  "findings": []
+ },
+ "tls_analysis": {
+  "status": "ok",
+  "https": true,
+  "certificate_valid": true,
+  "chain_trusted": true,
+  "hostname_match": true,
+  "issuer": {
+   "organization": "Test CA",
+   "common_name": "Test CA"
+  },
+  "expires_at": "2027-01-01T00:00:00+00:00",
+  "age_days": 2,
+  "tls_version": "TLSv1.3",
+  "weak_cipher": false,
+  "findings": []
+ },
+ "website_analysis": {
+  "status": "ok",
+  "fetched": true,
+  "final_url": "https://paypa1-secure-login.xyz/verify?next=http://evil.com",
+  "http_status": 200,
+  "content_type": "text/html",
+  "tls_verified": null,
+  "redirects": {
+   "count": 0,
+   "chain": [],
+   "cross_domain": false,
+   "ends_on_different_domain": false
+  },
+  "is_download": false,
+  "truncated": false,
+  "size_bytes": 197,
+  "title": "PayPal - Log in",
+  "site_name": null,
+  "headings": [],
+  "forms": {
+   "count": 1,
+   "items": [
+    {
+     "action_host": "collector.evil.ru",
+     "method": "get",
+     "external": true,
+     "action_scheme_unusual": false,
+     "insecure_submit": false,
+     "has_password": true,
+     "input_types": [
+      "password"
+     ]
+    }
+   ],
+   "login_form": true,
+   "external_action": true,
+   "insecure_submit": false
+  },
+  "password_fields": 1,
+  "iframes": {
+   "count": 1,
+   "hidden": 1,
+   "external": 1,
+   "items": [
+    {
+     "src_host": "t.evil.ru",
+     "hidden": true,
+     "external": true,
+     "sandboxed": false
+    }
+   ]
+  },
+  "hidden_elements": {
+   "hidden_inputs": 0,
+   "styled_hidden": 0,
+   "total": 0
+  },
+  "scripts": {
+   "inline_chars": 15,
+   "external_count": 0,
+   "external_hosts": [],
+   "signals": {
+    "eval": 1,
+    "atob": 1
+   },
+   "suspicious_reasons": [
+    "eval_with_decoder"
+   ],
+   "is_suspicious": true
+  },
+  "client_side_redirect": {
+   "meta_refresh": null,
+   "javascript": false
+  },
+  "right_click_blocked": false,
+  "findings": [
+   {
+    "id": "login_form",
+    "severity": "low",
+    "detail": "Page asks for a password"
+   },
+   {
+    "id": "external_form_action",
+    "severity": "high",
+    "detail": "A form submits data to a different domain"
+   },
+   {
+    "id": "hidden_iframe",
+    "severity": "high",
+    "detail": "1 hidden iframe(s)"
+   },
+   {
+    "id": "suspicious_scripts",
+    "severity": "high",
+    "detail": "Obfuscation/exfiltration patterns: eval_with_decoder"
+   }
+  ]
+ },
+ "typosquatting": {
+  "candidate": "paypa1-secure-login",
+  "registered_domain": "paypa1-secure-login.xyz",
+  "is_typosquat": true,
+  "matches": [
+   {
+    "brand": "PayPal",
+    "brand_label": "paypal",
+    "technique": "substitution",
+    "matched_token": "paypa1",
+    "distance": 1,
+    "levenshtein_similarity": 0.8333,
+    "jaro_winkler": 0.9333,
+    "ngram_similarity": 0.8,
+    "similarity": 0.86,
+    "official_domains": [
+     "paypal.com",
+     "paypal.me",
+     "paypalobjects.com"
+    ]
+   }
+  ],
+  "best": {
+   "brand": "PayPal",
+   "brand_label": "paypal",
+   "technique": "substitution",
+   "matched_token": "paypa1",
+   "distance": 1,
+   "levenshtein_similarity": 0.8333,
+   "jaro_winkler": 0.9333,
+   "ngram_similarity": 0.8,
+   "similarity": 0.86,
+   "official_domains": [
+    "paypal.com",
+    "paypal.me",
+    "paypalobjects.com"
+   ]
+  }
+ },
+ "homograph": {
+  "is_idn": false,
+  "punycode_labels": [],
+  "unicode_host": "paypa1-secure-login.xyz",
+  "ascii_host": "paypa1-secure-login.xyz",
+  "contains_non_ascii": false,
+  "scripts_by_label": {
+   "paypa1-secure-login": [
+    "LATIN"
+   ],
+   "xyz": [
+    "LATIN"
+   ]
+  },
+  "mixed_script_labels": [],
+  "whole_script_confusable": false,
+  "hidden_characters": [],
+  "skeleton": null,
+  "brand_matches": [],
+  "is_suspicious": false
+ },
+ "brand_impersonation": {
+  "is_impersonation_suspected": true,
+  "score": 98,
+  "verified_brand_domain": null,
+  "targets": [
+   {
+    "brand": "PayPal",
+    "sector": "payments",
+    "signals": [
+     {
+      "id": "typosquat:substitution",
+      "weight": 80,
+      "detail": "'paypa1-secure-login' is a substitution of 'paypal'"
+     },
+     {
+      "id": "brand_in_page_title",
+      "weight": 45,
+      "detail": "Page title/headings mention PayPal but the domain is not PayPal's"
+     },
+     {
+      "id": "brand_login_form",
+      "weight": 25,
+      "detail": "A password form is shown on a page presenting itself as PayPal"
+     }
+    ],
+    "metrics": {
+     "levenshtein_similarity": 0.8333,
+     "jaro_winkler": 0.9333,
+     "ngram_similarity": 0.8,
+     "similarity": 0.86,
+     "technique": "substitution"
+    },
+    "score": 98,
+    "official_domains": [
+     "paypal.com",
+     "paypal.me",
+     "paypalobjects.com"
+    ]
+   }
+  ]
+ },
+ "threat_intelligence": [
+  {
+   "provider": "LocalHeuristics",
+   "reputation": "Suspicious",
+   "is_known_malicious": false,
+   "threat_category": "Suspicious domain profile",
+   "detail": "2 risk indicator(s)"
+  }
+ ],
+ "reputation": {
+  "rating": "Poor",
+  "indicators": [
+   {
+    "id": "domain_very_new",
+    "severity": "high",
+    "detail": "Domain registered 3 day(s) ago"
+   },
+   {
+    "id": "risky_tld",
+    "severity": "low",
+    "detail": "High-abuse top-level domain"
+   }
+  ]
+ },
+ "ml": {
+  "prediction": "phishing",
+  "probability": 0.95,
+  "confidence": 0.9,
+  "top_features": [
+   {
+    "feature": "brand_lookalike_domain",
+    "label": "Look-alike of a known brand domain",
+    "value": 1.0,
+    "contribution": 2.31,
+    "direction": "phishing"
+   },
+   {
+    "feature": "domain_age_days",
+    "label": "Domain age (days)",
+    "value": 3.0,
+    "contribution": 1.2,
+    "direction": "phishing"
+   }
+  ],
+  "explanation": [],
+  "model_version": "xgboost-20260101T000000Z",
+  "explanation_method": "shap_tree"
+ },
+ "risk": {
+  "score": 98,
+  "level": "Critical",
+  "category": "Brand Impersonation",
+  "method": "blended",
+  "heuristic_score": 100,
+  "ml_weight": 0.4,
+  "summary": "Multiple severe phishing indicators were detected.",
+  "factors": [
+   {
+    "id": "brand_impersonation",
+    "group": "brand",
+    "points": 44.1,
+    "severity": "High",
+    "detail": "Possible impersonation of PayPal (typosquat:substitution, brand_in_page_title, brand_login_form)",
+    "icon": "\ud83c\udff7"
+   },
+   {
+    "id": "domain_very_new",
+    "group": "domain",
+    "points": 25,
+    "severity": "High",
+    "detail": "Domain registered 3 day(s) ago",
+    "icon": "\ud83c\udf0d"
+   },
+   {
+    "id": "external_form_action",
+    "group": "website",
+    "points": 18,
+    "severity": "High",
+    "detail": "A form submits data to a different domain",
+    "icon": "\ud83d\udcc4"
+   },
+   {
+    "id": "hidden_iframe",
+    "group": "website",
+    "points": 12,
+    "severity": "Medium",
+    "detail": "1 hidden iframe(s)",
+    "icon": "\ud83d\udcc4"
+   },
+   {
+    "id": "suspicious_scripts",
+    "group": "website",
+    "points": 12,
+    "severity": "Medium",
+    "detail": "Obfuscation/exfiltration patterns: eval_with_decoder",
+    "icon": "\ud83d\udcc4"
+   },
+   {
+    "id": "credential_harvest_pattern",
+    "group": "combo",
+    "points": 10,
+    "severity": "Medium",
+    "detail": "Password form combined with other phishing indicators",
+    "icon": "\ud83d\udea9"
+   },
+   {
+    "id": "suspicious_keywords",
+    "group": "url",
+    "points": 9,
+    "severity": "Medium",
+    "detail": "Keywords: login, verify, secure",
+    "icon": "\ud83e\uddf1"
+   },
+   {
+    "id": "redirect_parameter",
+    "group": "url",
+    "points": 8,
+    "severity": "Medium",
+    "detail": "Query parameter(s) carry another URL: next",
+    "icon": "\ud83e\uddf1"
+   },
+   {
+    "id": "risky_tld",
+    "group": "url",
+    "points": 6,
+    "severity": "Medium",
+    "detail": "Top-level domain .xyz is heavily abused",
+    "icon": "\ud83e\uddf1"
+   },
+   {
+    "id": "login_form",
+    "group": "website",
+    "points": 4,
+    "severity": "Low",
+    "detail": "Page asks for a password",
+    "icon": "\ud83d\udcc4"
+   }
+  ],
+  "mitigating_factors": [],
+  "hard_evidence": [
+   "external_form_action",
+   "suspicious_scripts"
+  ],
+  "indicators": [
+   {
+    "icon": "\ud83c\udff7",
+    "text": "Possible impersonation of PayPal (typosquat:substitution, brand_in_page_title, brand_login_form)",
+    "detail": "brand impersonation",
+    "sev": "High"
+   },
+   {
+    "icon": "\ud83c\udf0d",
+    "text": "Domain registered 3 day(s) ago",
+    "detail": "domain very new",
+    "sev": "High"
+   },
+   {
+    "icon": "\ud83d\udcc4",
+    "text": "A form submits data to a different domain",
+    "detail": "external form action",
+    "sev": "High"
+   },
+   {
+    "icon": "\ud83d\udcc4",
+    "text": "1 hidden iframe(s)",
+    "detail": "hidden iframe",
+    "sev": "Medium"
+   },
+   {
+    "icon": "\ud83d\udcc4",
+    "text": "Obfuscation/exfiltration patterns: eval_with_decoder",
+    "detail": "suspicious scripts",
+    "sev": "Medium"
+   },
+   {
+    "icon": "\ud83d\udea9",
+    "text": "Password form combined with other phishing indicators",
+    "detail": "credential harvest pattern",
+    "sev": "Medium"
+   },
+   {
+    "icon": "\ud83e\uddf1",
+    "text": "Keywords: login, verify, secure",
+    "detail": "suspicious keywords",
+    "sev": "Medium"
+   },
+   {
+    "icon": "\ud83e\uddf1",
+    "text": "Query parameter(s) carry another URL: next",
+    "detail": "redirect parameter",
+    "sev": "Medium"
+   }
+  ]
+ },
+ "recommendations": [
+  {
+   "icon": "\ud83d\udeab",
+   "title": "Do not enter credentials",
+   "description": "Never submit passwords, one-time codes or card data on this site.",
+   "priority": "High",
+   "sort_order": 0
+  },
+  {
+   "icon": "\ud83d\udce5",
+   "title": "Do not download files",
+   "description": "Avoid any automatic or prompted downloads from this domain.",
+   "priority": "High",
+   "sort_order": 1
+  },
+  {
+   "icon": "\u26d4",
+   "title": "Block the URL",
+   "description": "Add the domain to your email and web gateway blocklists.",
+   "priority": "High",
+   "sort_order": 2
+  },
+  {
+   "icon": "\ud83d\udce3",
+   "title": "Report the website",
+   "description": "Submit to your IT/security team and to phishing report services.",
+   "priority": "Medium",
+   "sort_order": 3
+  },
+  {
+   "icon": "\ud83d\udd0e",
+   "title": "Verify the domain",
+   "description": "Open the real service by typing its address manually instead of using this link.",
+   "priority": "High",
+   "sort_order": 4
+  },
+  {
+   "icon": "\ud83d\udcc5",
+   "title": "Be wary of brand-new domains",
+   "description": "Phishing sites are frequently registered days before use.",
+   "priority": "Medium",
+   "sort_order": 5
+  }
+ ],
+ "security_features": {
+  "domain_age_days": 3,
+  "whois_privacy": 0.0,
+  "dns_resolves": 1.0,
+  "nameserver_count": 1,
+  "tls_valid": 1.0,
+  "tls_cert_age_days": 2,
+  "tls_hostname_match": 1.0,
+  "redirect_count": 0,
+  "has_login_form": 1.0,
+  "has_password_field": 1.0,
+  "external_form_action": 1.0,
+  "iframe_count": 1,
+  "hidden_element_count": 0,
+  "has_suspicious_scripts": 1.0,
+  "threat_feed_hits": 0
+ }
+}

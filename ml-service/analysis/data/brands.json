@@ -1,0 +1,605 @@
+{
+ "_note": "Hand-curated list of commonly impersonated brands and their official domains. Extend it for your market; review periodically.",
+ "brands": [
+  {
+   "name": "PayPal",
+   "labels": [
+    "paypal"
+   ],
+   "domains": [
+    "paypal.com",
+    "paypal.me",
+    "paypalobjects.com"
+   ],
+   "sector": "payments"
+  },
+  {
+   "name": "Microsoft",
+   "labels": [
+    "microsoft",
+    "office365",
+    "outlook",
+    "onedrive"
+   ],
+   "domains": [
+    "microsoft.com",
+    "live.com",
+    "office.com",
+    "outlook.com",
+    "office365.com",
+    "microsoftonline.com",
+    "azure.com",
+    "windows.com",
+    "xbox.com",
+    "sharepoint.com"
+   ],
+   "sector": "tech"
+  },
+  {
+   "name": "Google",
+   "labels": [
+    "google",
+    "gmail"
+   ],
+   "domains": [
+    "google.com",
+    "gmail.com",
+    "youtube.com",
+    "goo.gl",
+    "withgoogle.com",
+    "google.co.in",
+    "googleusercontent.com"
+   ],
+   "sector": "tech"
+  },
+  {
+   "name": "Apple",
+   "labels": [
+    "apple",
+    "icloud"
+   ],
+   "domains": [
+    "apple.com",
+    "icloud.com",
+    "me.com"
+   ],
+   "sector": "tech"
+  },
+  {
+   "name": "Amazon",
+   "labels": [
+    "amazon"
+   ],
+   "domains": [
+    "amazon.com",
+    "amazon.in",
+    "amazon.co.uk",
+    "amazon.de",
+    "amazon.ca",
+    "amazon.com.au",
+    "amazonaws.com",
+    "amazon.co.jp"
+   ],
+   "sector": "retail"
+  },
+  {
+   "name": "Netflix",
+   "labels": [
+    "netflix"
+   ],
+   "domains": [
+    "netflix.com",
+    "nflxext.com"
+   ],
+   "sector": "media"
+  },
+  {
+   "name": "Facebook",
+   "labels": [
+    "facebook",
+    "messenger"
+   ],
+   "domains": [
+    "facebook.com",
+    "fb.com",
+    "fb.me",
+    "meta.com",
+    "messenger.com"
+   ],
+   "sector": "social"
+  },
+  {
+   "name": "Instagram",
+   "labels": [
+    "instagram"
+   ],
+   "domains": [
+    "instagram.com"
+   ],
+   "sector": "social"
+  },
+  {
+   "name": "WhatsApp",
+   "labels": [
+    "whatsapp"
+   ],
+   "domains": [
+    "whatsapp.com",
+    "whatsapp.net",
+    "wa.me"
+   ],
+   "sector": "social"
+  },
+  {
+   "name": "LinkedIn",
+   "labels": [
+    "linkedin"
+   ],
+   "domains": [
+    "linkedin.com",
+    "lnkd.in"
+   ],
+   "sector": "social"
+  },
+  {
+   "name": "Twitter",
+   "labels": [
+    "twitter"
+   ],
+   "domains": [
+    "twitter.com",
+    "x.com",
+    "t.co"
+   ],
+   "sector": "social"
+  },
+  {
+   "name": "Dropbox",
+   "labels": [
+    "dropbox"
+   ],
+   "domains": [
+    "dropbox.com",
+    "dropboxusercontent.com"
+   ],
+   "sector": "tech"
+  },
+  {
+   "name": "DocuSign",
+   "labels": [
+    "docusign"
+   ],
+   "domains": [
+    "docusign.com",
+    "docusign.net"
+   ],
+   "sector": "tech"
+  },
+  {
+   "name": "Adobe",
+   "labels": [
+    "adobe"
+   ],
+   "domains": [
+    "adobe.com"
+   ],
+   "sector": "tech"
+  },
+  {
+   "name": "Zoom",
+   "labels": [
+    "zoom"
+   ],
+   "domains": [
+    "zoom.us",
+    "zoom.com"
+   ],
+   "sector": "tech"
+  },
+  {
+   "name": "Slack",
+   "labels": [
+    "slack"
+   ],
+   "domains": [
+    "slack.com"
+   ],
+   "sector": "tech"
+  },
+  {
+   "name": "GitHub",
+   "labels": [
+    "github"
+   ],
+   "domains": [
+    "github.com",
+    "github.io",
+    "githubusercontent.com"
+   ],
+   "sector": "tech"
+  },
+  {
+   "name": "DHL",
+   "labels": [
+    "dhl"
+   ],
+   "domains": [
+    "dhl.com",
+    "dhl.de",
+    "dhl.co.in"
+   ],
+   "sector": "logistics"
+  },
+  {
+   "name": "FedEx",
+   "labels": [
+    "fedex"
+   ],
+   "domains": [
+    "fedex.com"
+   ],
+   "sector": "logistics"
+  },
+  {
+   "name": "UPS",
+   "labels": [
+    "ups"
+   ],
+   "domains": [
+    "ups.com"
+   ],
+   "sector": "logistics"
+  },
+  {
+   "name": "USPS",
+   "labels": [
+    "usps"
+   ],
+   "domains": [
+    "usps.com"
+   ],
+   "sector": "logistics"
+  },
+  {
+   "name": "Chase",
+   "labels": [
+    "chase",
+    "jpmorgan"
+   ],
+   "domains": [
+    "chase.com",
+    "jpmorgan.com"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "Wells Fargo",
+   "labels": [
+    "wellsfargo"
+   ],
+   "domains": [
+    "wellsfargo.com"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "Bank of America",
+   "labels": [
+    "bankofamerica"
+   ],
+   "domains": [
+    "bankofamerica.com"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "Citibank",
+   "labels": [
+    "citibank"
+   ],
+   "domains": [
+    "citi.com",
+    "citibank.com"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "HSBC",
+   "labels": [
+    "hsbc"
+   ],
+   "domains": [
+    "hsbc.com",
+    "hsbc.co.uk",
+    "hsbc.co.in"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "Barclays",
+   "labels": [
+    "barclays"
+   ],
+   "domains": [
+    "barclays.com",
+    "barclays.co.uk"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "Capital One",
+   "labels": [
+    "capitalone"
+   ],
+   "domains": [
+    "capitalone.com"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "American Express",
+   "labels": [
+    "americanexpress"
+   ],
+   "domains": [
+    "americanexpress.com",
+    "amex.com"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "Visa",
+   "labels": [
+    "visa"
+   ],
+   "domains": [
+    "visa.com"
+   ],
+   "sector": "payments"
+  },
+  {
+   "name": "Mastercard",
+   "labels": [
+    "mastercard"
+   ],
+   "domains": [
+    "mastercard.com"
+   ],
+   "sector": "payments"
+  },
+  {
+   "name": "Coinbase",
+   "labels": [
+    "coinbase"
+   ],
+   "domains": [
+    "coinbase.com"
+   ],
+   "sector": "crypto"
+  },
+  {
+   "name": "Binance",
+   "labels": [
+    "binance"
+   ],
+   "domains": [
+    "binance.com"
+   ],
+   "sector": "crypto"
+  },
+  {
+   "name": "Walmart",
+   "labels": [
+    "walmart"
+   ],
+   "domains": [
+    "walmart.com"
+   ],
+   "sector": "retail"
+  },
+  {
+   "name": "eBay",
+   "labels": [
+    "ebay"
+   ],
+   "domains": [
+    "ebay.com"
+   ],
+   "sector": "retail"
+  },
+  {
+   "name": "Steam",
+   "labels": [
+    "steampowered",
+    "steamcommunity"
+   ],
+   "domains": [
+    "steampowered.com",
+    "steamcommunity.com"
+   ],
+   "sector": "gaming"
+  },
+  {
+   "name": "Spotify",
+   "labels": [
+    "spotify"
+   ],
+   "domains": [
+    "spotify.com"
+   ],
+   "sector": "media"
+  },
+  {
+   "name": "Booking.com",
+   "labels": [
+    "booking"
+   ],
+   "domains": [
+    "booking.com"
+   ],
+   "sector": "travel"
+  },
+  {
+   "name": "Airbnb",
+   "labels": [
+    "airbnb"
+   ],
+   "domains": [
+    "airbnb.com"
+   ],
+   "sector": "travel"
+  },
+  {
+   "name": "HDFC Bank",
+   "labels": [
+    "hdfcbank",
+    "hdfc"
+   ],
+   "domains": [
+    "hdfcbank.com",
+    "hdfc.com"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "ICICI Bank",
+   "labels": [
+    "icicibank",
+    "icici"
+   ],
+   "domains": [
+    "icicibank.com"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "State Bank of India",
+   "labels": [
+    "onlinesbi",
+    "sbi"
+   ],
+   "domains": [
+    "sbi.co.in",
+    "onlinesbi.com",
+    "onlinesbi.sbi",
+    "sbi.bank.in"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "Axis Bank",
+   "labels": [
+    "axisbank"
+   ],
+   "domains": [
+    "axisbank.com"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "Kotak Bank",
+   "labels": [
+    "kotak"
+   ],
+   "domains": [
+    "kotak.com",
+    "kotak.bank.in"
+   ],
+   "sector": "banking"
+  },
+  {
+   "name": "Paytm",
+   "labels": [
+    "paytm"
+   ],
+   "domains": [
+    "paytm.com"
+   ],
+   "sector": "payments"
+  },
+  {
+   "name": "PhonePe",
+   "labels": [
+    "phonepe"
+   ],
+   "domains": [
+    "phonepe.com"
+   ],
+   "sector": "payments"
+  },
+  {
+   "name": "IRCTC",
+   "labels": [
+    "irctc"
+   ],
+   "domains": [
+    "irctc.co.in"
+   ],
+   "sector": "government"
+  },
+  {
+   "name": "Flipkart",
+   "labels": [
+    "flipkart"
+   ],
+   "domains": [
+    "flipkart.com"
+   ],
+   "sector": "retail"
+  },
+  {
+   "name": "Aadhaar (UIDAI)",
+   "labels": [
+    "uidai",
+    "aadhaar"
+   ],
+   "domains": [
+    "uidai.gov.in"
+   ],
+   "sector": "government"
+  },
+  {
+   "name": "Income Tax India",
+   "labels": [
+    "incometax"
+   ],
+   "domains": [
+    "incometax.gov.in",
+    "incometaxindia.gov.in"
+   ],
+   "sector": "government"
+  },
+  {
+   "name": "India Post",
+   "labels": [
+    "indiapost"
+   ],
+   "domains": [
+    "indiapost.gov.in"
+   ],
+   "sector": "government"
+  },
+  {
+   "name": "Jio",
+   "labels": [
+    "jio"
+   ],
+   "domains": [
+    "jio.com",
+    "jio.in"
+   ],
+   "sector": "telecom"
+  },
+  {
+   "name": "Airtel",
+   "labels": [
+    "airtel"
+   ],
+   "domains": [
+    "airtel.in",
+    "airtel.com"
+   ],
+   "sector": "telecom"
+  }
+ ]
+}

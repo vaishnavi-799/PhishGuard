@@ -1,0 +1,12 @@
+const express=require('express'),helmet=require('helmet'),cors=require('cors'),morgan=require('morgan'),env=require('./config/env'),logger=require('./utils/logger');
+const {globalLimiter}=require('./middleware/rateLimit'),{notFound,errorHandler}=require('./middleware/error');
+const app=express();
+app.disable('x-powered-by');if(env.trustProxy)app.set('trust proxy',1);
+app.use(helmet());
+app.use(cors({origin:env.corsOrigins,methods:['GET','POST','PUT','PATCH','DELETE'],allowedHeaders:['Content-Type','Authorization'],maxAge:600}));
+app.use(morgan(env.isProd?'combined':'dev',{stream:{write:m=>logger.http(m.trim())}}));
+app.use(globalLimiter);
+app.use(express.json({limit:'100kb'}));
+app.use('/api',require('./routes'));
+app.use(notFound);app.use(errorHandler);
+module.exports=app;

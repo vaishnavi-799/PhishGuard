@@ -1,0 +1,16 @@
+const svc=require('../services/adminService'),threats=require('../services/threatService'),h=require('../utils/asyncHandler'),{ok}=require('../utils/response'),audit=require('../services/auditService');
+const A=(req,action,detail,result='Success')=>audit.log({req,user:req.user,action,detail,result});
+exports.overview=h(async(req,res)=>ok(res,await svc.overview()));
+exports.users=h(async(req,res)=>ok(res,await svc.users()));
+exports.updateUser=h(async(req,res)=>{const u=await svc.updateUser(req.user,req.params.id,req.body);await A(req,req.body.role?'ROLE_CHANGE':req.body.status==='Suspended'?'USER_SUSPEND':'USER_UPDATE',`${req.params.id} ${JSON.stringify(req.body)}`);ok(res,u)});
+exports.deleteUser=h(async(req,res)=>{await svc.deleteUser(req.user,req.params.id);await A(req,'USER_DELETE',req.params.id);ok(res,{deleted:true})});
+exports.invite=h(async(req,res)=>{const u=await svc.inviteUser(req.user,req.body);await A(req,'USER_INVITE',u.email);ok(res,u,201)});
+exports.scans=h(async(req,res)=>ok(res,await svc.scans()));
+exports.reviewScan=h(async(req,res)=>{await svc.reviewScan(req.user,req.params.id);await A(req,'SCAN_REVIEW',req.params.id);ok(res,{reviewed:true})});
+exports.deleteScan=h(async(req,res)=>{await svc.deleteScan(req.params.id);await A(req,'SCAN_DELETE',req.params.id);ok(res,{deleted:true})});
+exports.threats=h(async(req,res)=>ok(res,await svc.threats()));
+exports.addIndicator=h(async(req,res)=>{const t=await threats.addIndicator(req.user,req.body);await A(req,'BLOCKLIST_ADD',t.indicator);ok(res,t,201)});
+exports.updateIndicator=h(async(req,res)=>{const t=await threats.updateIndicator(req.params.id,req.body);await A(req,'BLOCKLIST_UPDATE',`${req.params.id} ${JSON.stringify(req.body)}`);ok(res,t)});
+exports.removeIndicator=h(async(req,res)=>{await threats.removeIndicator(req.params.id);await A(req,'BLOCKLIST_REMOVE',req.params.id);ok(res,{deleted:true})});
+exports.updateFeed=h(async(req,res)=>ok(res,await threats.updateFeed(req.params.id,req.body)));
+exports.syncFeed=h(async(req,res)=>ok(res,await threats.syncFeed(req.params.id)));

@@ -1,0 +1,31 @@
+﻿import {useState} from 'react';
+import {Card,Btn,Badge,Progress,Alert,PageHeader,Async,useAsync,Loading,Empty,LevelBadge,riskLevel} from '../components/ui.jsx';
+import {svc} from '../api/client.js';
+import {iocType} from '../utils/ioc.js';
+const EX=['secure-paypa1-login.com','github.com','185.220.101.4','upi-refund-claim.xyz/pay','44d88612fea8a8f36de82e1278abb02f'];
+const TL={'Very Low':'Minimal',Low:'Low',Medium:'Moderate',High:'Elevated',Critical:'Severe'};
+const V={Malicious:'danger',Suspicious:'warning',Clean:'success','Not listed':'secondary',Unknown:'secondary'};
+const Info=({label,children,cls='col-sm-6 col-xl-3'})=>(<div className={cls}><Card className="h-100"><small className="text-muted text-uppercase d-block mb-2">{label}</small>{children}</Card></div>);
+const Timeline=({items})=>(<div className="border-start ms-2 ps-4">{items.map((e,i)=>(<div key={i} className="position-relative pb-3"><span className={`position-absolute rounded-circle bg-${e.tone} border border-white border-2`} style={{left:-34,top:3,width:14,height:14}}/><small className="text-muted">{e.time}</small><div className="fw-semibold small">{e.title}</div><small className="text-muted">{e.detail}</small></div>))}</div>);
+export default function ThreatIntel(){const ov=useAsync(svc.intelOverview);const[q,setQ]=useState('');const[err,setErr]=useState('');const[loading,setLoading]=useState(false);const[res,setRes]=useState(null);
+const t=q.trim()?iocType(q.trim()):null;
+const run=async v=>{v=(v??q).trim();setQ(v);if(!v)return setErr('Enter a URL, domain, IP address or file hash.');const ty=iocType(v);if(!ty)return setErr('Not recognised. Use a URL, domain, IPv4 address, or an MD5 / SHA-1 / SHA-256 hash.');setErr('');setLoading(true);try{setRes(await svc.lookup(v,ty))}catch(e){setErr(e.message||'Lookup failed. Please retry.')}setLoading(false)};
+const tone=res&&V[res.reputation];
+return(<><PageHeader title="Threat Intelligence" sub="Look up the reputation of a URL, domain, IP address or file hash across threat feeds."/>
+<Card className="mb-3"><form onSubmit={e=>{e.preventDefault();run()}} noValidate><label htmlFor="ioc" className="form-label fw-semibold">Search indicator</label>
+<div className="input-group input-group-lg"><input id="ioc" className={`form-control ${err?'is-invalid':''}`} placeholder="URL / Domain / IP / Hash" value={q} disabled={loading} autoComplete="off" spellCheck="false" onChange={e=>{setQ(e.target.value);setErr('')}}/><Btn loading={loading}>Search</Btn></div>
+<div className="d-flex justify-content-between flex-wrap gap-2 mt-2"><small className={err?'text-danger':'text-muted'} role={err?'alert':undefined}>{err||(t?<>Detected type: <Badge type="primary">{t}</Badge></>:'Supports URLs, domains, IPv4 addresses and MD5/SHA-1/SHA-256 hashes.')}</small></div>
+<div className="mt-2 small text-muted">Try: {EX.map(x=><button key={x} type="button" className="btn btn-sm btn-light border me-1 mb-1" disabled={loading} onClick={()=>run(x)}>{x.length>26?x.slice(0,24)+'â€¦':x}</button>)}</div></form></Card>
+{loading?<Card className="mb-3"><Loading text="Checking configured reputation sourcesâ€¦"/></Card>:res?<>
+<div className="d-flex align-items-center gap-2 flex-wrap mb-3"><h6 className="mb-0">Results for</h6><code className="text-break">{res.query}</code><Badge type="primary">{res.type}</Badge><Btn size="sm" variant="outline-secondary" onClick={()=>{setRes(null);setQ('')}}>Clear</Btn></div>
+{res.reputation==='Malicious'&&<Alert type="danger" title="Known malicious indicator.">Block this indicator and avoid interacting with it.</Alert>}
+<div className="row g-3 mb-4"><Info label="Reputation"><Badge type={tone}>{res.reputation}</Badge><div className="small text-muted mt-2">{Number.isFinite(res.score)?`Risk score ${res.score}/100`:'No score available'}</div></Info>
+<Info label="Threat Level">{Number.isFinite(res.score)?<><LevelBadge score={res.score}/><div className="small text-muted mt-2">{TL[riskLevel(res.score)[1]]}</div></>:<><Badge type="secondary">Unknown</Badge><div className="small text-muted mt-2">No verdict available</div></>}</Info>
+<Info label="Malicious Indicators"><div className="fw-bold fs-5">{res.malicious} <small className="text-muted fs-6">/ {res.total} sources checked</small></div>{res.total>0&&<Progress value={res.malicious/res.total*100} type={tone}/>}</Info>
+<Info label="Sources"><div className="fw-bold fs-5">{res.sources.length}</div><small className="text-muted">{res.sources.length?res.sources.slice(0,3).join(', ')+(res.sources.length>3?` +${res.sources.length-3}`:''):'No sources list this indicator'}</small></Info>
+<Info label="First Seen"><b>{res.firstSeen}</b></Info><Info label="Last Seen"><b>{res.lastSeen}</b></Info>
+<Info label="Threat Categories" cls="col-xl-6">{res.categories.length?res.categories.map(c=><Badge key={c} type="danger">{c}</Badge>).reduce((a,b)=>[a,' ',b]):<Badge type="success">None</Badge>}</Info></div></>
+:<Card className="mb-4"><Empty icon="ðŸ›°" title="Search for an indicator" message="Reputation, threat level, sources and categories appear here after a lookup."/></Card>}
+<div className="row g-3"><div className="col-xl-8"><h6 className="fw-bold mb-3">Intelligence providers</h6><Async state={ov}>{d=>(<div className="row g-3">{d.providers.map(p=>{const v=res?.providers.find(x=>x.name===p.name);return(<div key={p.id} className="col-sm-6"><Card hover className="h-100"><div className="d-flex justify-content-between align-items-start mb-2"><strong>{p.name}</strong><Badge type={p.status==='Operational'?'success':'warning'}>{p.status}</Badge></div>
+<dl className="row small mb-0"><dt className="col-5 text-muted fw-normal">Last updated</dt><dd className="col-7 mb-1">{p.updated}</dd><dt className="col-5 text-muted fw-normal">Coverage</dt><dd className="col-7 mb-1">{p.feed}</dd><dt className="col-5 text-muted fw-normal">Result</dt><dd className="col-7 mb-0">{v?<Badge type={V[v.verdict]}>{v.verdict}</Badge>:<span className="text-muted">â€”</span>}</dd></dl></Card></div>)})}</div>)}</Async></div>
+<div className="col-xl-4"><h6 className="fw-bold mb-3">Threat timeline</h6><Card title={res?'Indicator history':'Recent global activity'}><Async state={ov}>{d=><Timeline items={res?res.timeline:d.timeline}/>}</Async></Card></div></div></>)}

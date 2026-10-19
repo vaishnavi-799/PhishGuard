@@ -1,0 +1,2 @@
+const r=require('express').Router(),c=require('../controllers/reportController'),v=require('../validators/reports'),{idParam}=require('../validators/common'),validate=require('../middleware/validate'),{authenticate}=require('../middleware/auth');
+r.use(authenticate);r.get('/',c.list);r.post('/',validate(v.create),c.create);r.get('/:id/download',validate(v.download),c.download);r.get('/:id',validate(idParam('R')),c.get);module.exports=r;

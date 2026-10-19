@@ -1,0 +1,45 @@
+// MOCK analysis data (ported from the frontend mock). Replace with real ML / security analysis services later.
+const ago=h=>new Date(Date.now()-h*36e5).toISOString().slice(0,16).replace('T',' ');
+const indicators=[
+{name:'Domain age',detail:'Registered 3 days ago',weight:92,sev:'high'},
+{name:'Brand impersonation',detail:'Mimics "PayPal" using character substitution (l → 1)',weight:96,sev:'high'},
+{name:'SSL certificate',detail:'Free DV cert issued 2 days ago',weight:61,sev:'medium'},
+{name:'URL structure',detail:'Suspicious keywords: verify, secure, login',weight:78,sev:'high'},
+{name:'Redirect chain',detail:'3 hops via URL shortener',weight:55,sev:'medium'},
+{name:'WHOIS privacy',detail:'Registrant hidden',weight:38,sev:'low'},
+{name:'Page content',detail:'Credential form posts to external host',weight:90,sev:'high'},
+{name:'Reputation feeds',detail:'Listed in 4 of 9 blocklists',weight:84,sev:'high'}];
+const reportFor=s=>{const sc=s.score,i=sc>=60?0:sc>=40?1:2,L=['bad','warn','ok'][i],p=(a,b,c)=>[a,b,c][i],c=(label,value,status=L)=>({label,value,status});
+const why=[[['🏷','Domain closely resembles a known brand','Hostname is 94% similar to "paypal.com" using character substitution.','High'],['🧱','Suspicious URL structure','Long path with credential keywords and 4 subdomain levels.','High'],['🔑','Password form detected','The page asks for a password on a newly registered domain.','Medium'],['📤','External form submission detected','Form data is posted to a different, unrelated host.','High'],['🚩','Domain reputation is suspicious','Listed on 4 of 9 phishing blocklists.','Medium'],['↪️','Multiple redirects detected','3 redirects, including a URL shortener hop.','Medium']],
+[['🧱','Suspicious URL structure','Shortened link hides the final destination.','Medium'],['🚩','Domain reputation is unclear','Listed on 1 of 9 blocklists; low traffic rank.','Medium'],['↪️','Redirect detected','1 redirect to a different domain.','Low']],[]][i];
+const act=[[['🚫','Do not enter credentials','Never submit passwords, OTPs or card data on this site.','High'],['📥','Do not download files','Avoid any automatic or prompted downloads from this domain.','High'],['🔎','Verify the domain','Open the real service by typing its address manually.','Medium'],['⛔','Block the URL','Add the domain to your email and web gateway blocklist.','High'],['📣','Report the website','Submit to PhishTank, Google Safe Browsing and your IT team.','Medium']],
+[['⚠️','Proceed with caution','Avoid entering sensitive information.','Medium'],['✉️','Verify the sender','Confirm the link through a trusted channel.','Medium'],['🔄','Re-scan later','Reputation may change as feeds update.','Low']],
+[['✅','No action required','No significant risk indicators were found.','Low'],['🧩','Keep your browser updated','Updates add Safe Browsing improvements.','Low']]][i];
+const sh=[['Brand similarity',['0.94','0.58','0.12'],.31],['Domain age',['3 days','5 months','11 years'],.24],['External form action',['Yes','No','No'],.19],['Suspicious keywords',['4 found','1 found','None'],.14],['URL length',['112 chars','74 chars','31 chars'],.08],['Redirect count',['3','1','0'],.06],['Valid TLS issuer',['Free DV','Sectigo DV','DigiCert EV'],-.07],['Domain popularity rank',['Unranked','Rank 480k','Rank 1,200'],-.05]];
+const k=[1,.4,-.35][i];
+return{scan:s,why:why.map(([icon,text,detail,sev])=>({icon,text,detail,sev})),actions:act.map(([icon,title,desc,priority])=>({icon,title,desc,priority})),
+url:[c('URL length',p('112 characters (long)','74 characters','31 characters')),c('Subdomains',p('4 levels','2 levels','1 level')),c('Special characters',p('9 found  ( - @ % = )','4 found','1 found')),c('IP-based URL','No','ok'),c('Encoding',p('Percent-encoding detected','None','None'),i===0?'warn':'ok'),c('Shortener',i===1?'bit.ly detected':'Not used',i===1?'warn':'ok'),c('Suspicious keywords',p('verify, secure, login, update','login','None')),c('Redirects',p('3 hops','1 hop','None'))],
+domain:[c('Domain age',p('3 days','5 months','11 years')),c('Registrar',p('NameSilo (privacy enabled)','GoDaddy','MarkMonitor'),i===0?'warn':'ok'),c('DNS status','Resolving','ok'),c('Nameservers',p('ns1.dns-parking.top, ns2.dns-parking.top','ns1.cloudflare.com, ns2.cloudflare.com','ns1.google.com, ns2.google.com'),i===0?'warn':'ok'),c('Domain reputation',p('Poor','Neutral','Good')),c('Registration info',p('Registrant hidden · created 3 days ago','Created 5 months ago · privacy on','Organisation verified'),i===0?'bad':i===1?'warn':'ok')],
+ssl:[c('HTTPS','Enabled','ok'),c('Certificate validity','Valid',i===0?'warn':'ok'),c('Issuer',p("Let's Encrypt R10 (free DV)",'Sectigo DV','DigiCert EV'),i===0?'warn':'ok'),c('Expiration',p('In 88 days (issued 2 days ago)','In 190 days','In 240 days'),i===0?'warn':'ok'),c('Hostname match','Matches','ok'),c('TLS security',p('TLS 1.2 · weak cipher offered','TLS 1.3','TLS 1.3'),i===0?'warn':'ok')],
+web:[c('Login form',p('Detected','Detected','Not found'),i===2?'ok':'warn'),c('Password field',p('Yes','Yes','No'),i===2?'ok':'warn'),c('External form action',p('Posts to collector-x.ru','No','No'),i===0?'bad':'ok'),c('Iframes',p('2 hidden iframes','None','None'),i===0?'bad':'ok'),c('Hidden elements',p('7 hidden inputs','1','0'),i===0?'warn':'ok'),c('Suspicious scripts',p('Obfuscated eval()','None','None'),i===0?'bad':'ok'),c('Downloads',p('Auto-download attempt','None','None'),i===0?'bad':'ok'),c('Redirects',p('3 hops','1 hop','None'))],
+brand:{name:p('PayPal','Amazon',null),overall:p(94,58,12),lev:p(91,55,10),jw:p(96,62,14),ngram:p(89,50,9)},
+intel:['PhishTank','OpenPhish','Google Safe Browsing','VirusTotal'].map((provider,j)=>({id:j,provider,rep:p(['Malicious','Malicious','Malicious','9 / 90 engines'][j],['Unknown','Clean','Clean','1 / 90 engines'][j],'Clean'),tone:p('danger',j%3===0?'warning':'success','success'),known:p('Yes',j===0?'Possible':'No','No'),cat:p(['Credential theft','Credential theft','Phishing','Phishing'][j],j===0?'Suspicious':'—','—')})),
+ml:{prediction:p('Phishing','Suspicious','Legitimate'),probability:p(96.4,58.7,2.6),confidence:p(96.4,71.2,97.8),model:'XGBoost v1.3 · 42 features'},
+shap:sh.map(([f,v,x])=>({f,val:v[i],v:+(x>0?x*k:x).toFixed(2)}))};};
+
+const PROV=['PhishTank','OpenPhish','Google Safe Browsing','VirusTotal','URLhaus','AbuseIPDB','AlienVault OTX','Spamhaus'];
+const providers=PROV.map((name,i)=>({id:i,name,status:i===5?'Degraded':'Operational',updated:ago(i*.7+.3),feed:['1.4M URLs','320k URLs','4.2B URLs','70+ engines','2.1M URLs','28M IPs','19M pulses','Domain & IP lists'][i]}));
+const globalTimeline=[[1,'DHL smishing wave','312 new look-alike domains registered in the last hour','danger'],[6,'PayPal phishing kit v4','New kit with anti-bot cloaking observed','warning'],[14,'Takedown completed','214 phishing domains suspended by registrars','success'],[30,'M365 OAuth consent campaign','Targeting finance teams in APAC','warning']].map(([h,title,detail,tone])=>({time:ago(h),title,detail,tone}));
+const H=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,7);
+const lookupFor=(q,type)=>{const l=q.toLowerCase(),h=H(l);
+const good=/(^|[./])(google|github|microsoft|wikipedia|amazon)\.(com|org)|^(8\.8\.8\.8|1\.1\.1\.1)$/.test(l),bad=/paypa1|secure-|verify|login-|\.(xyz|top|cc|tk|click|cfd)(\/|$)|evil|malware|phish|^185\.220\./.test(l)||(type==='Hash'&&h%3===0);
+const score=good?h%6:bad?78+h%20:15+h%55,n=Math.round(score/100*PROV.length),m=score>=60?n:0;
+const cats=['Credential theft','Brand impersonation','Malware distribution','Payment fraud','Smishing'];
+const tl=score>=60?[[72,'Domain registered','WHOIS shows registration 3 days ago','info'],[70,'TLS certificate issued','Free DV certificate via Certificate Transparency','info'],[48,'First reported','Submitted to PhishTank by the community','warning'],[30,'Added to OpenPhish feed','Credential-harvesting kit fingerprint matched','danger'],[12,'Flagged by Google Safe Browsing','Browser warning page enabled','danger'],[2,'Seen in 3 new campaigns','Email lures impersonating payment brands','danger']]:score>=35?[[96,'First observed','Passive DNS sighting','info'],[40,'Low-confidence report','1 community report, unverified','warning'],[6,'Reputation re-evaluated','Mixed signals across feeds','warning']]:[[720,'First observed in passive DNS','Long-standing, stable infrastructure','info'],[48,'Reputation check','No listings across 8 providers','success']];
+return{query:q,type,score,reputation:score>=60?'Malicious':score>=35?'Suspicious':'Clean',malicious:m||(score>=35?n:0),total:PROV.length,
+sources:PROV.filter((_,j)=>j<n),firstSeen:score>=35?ago(24*(2+h%20)).slice(0,10):'—',lastSeen:score>=35?ago(1+h%30):'—',
+categories:score>=60?[cats[h%5],cats[(h+1)%5]]:score>=35?['Suspicious redirect']:[],
+providers:PROV.map((name,j)=>({name,verdict:j<m?'Malicious':j<n?'Suspicious':score<35?'Not listed':'Clean'})),
+timeline:tl.map(([hh,title,detail,tone])=>({time:ago(hh),title,detail,tone}))};};
+
+module.exports={indicators,reportFor,lookupFor,providers,globalTimeline};
