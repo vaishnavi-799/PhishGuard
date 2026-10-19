@@ -494,22 +494,205 @@ One-line pitch: “An explainable multi-signal phishing risk-assessment platform
 - **Integration test:** A test across component boundaries.
 - **Authorization:** Permission checking after identity is established.
 
-## 22. References
+## 📂 Project Setup
 
-- [Node.js documentation](https://nodejs.org/docs/latest/api/)
-- [Express documentation](https://expressjs.com/)
-- [PostgreSQL documentation](https://www.postgresql.org/docs/)
-- [React documentation](https://react.dev/)
-- [Vite documentation](https://vite.dev/guide/)
-- [FastAPI documentation](https://fastapi.tiangolo.com/)
-- [Uvicorn documentation](https://www.uvicorn.org/)
-- [Pydantic documentation](https://docs.pydantic.dev/)
-- [XGBoost documentation](https://xgboost.readthedocs.io/)
-- [scikit-learn documentation](https://scikit-learn.org/stable/)
-- [SHAP documentation](https://shap.readthedocs.io/)
-- [OWASP SSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html)
-- [OWASP File Upload Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html)
-=======
+### 1. Open the project
+
+```powershell
+cd "$HOME\OneDrive\Documents\phishguard-fullstack"
+```
+
+### 2. Check project folders
+
+```powershell
+Get-ChildItem
+```
+
+## 🗄️ PostgreSQL Setup
+
+### 3. Connect to PostgreSQL
+
+```powershell
+& "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -h 127.0.0.1 -p 5432 -d postgres
+```
+
+Enter your PostgreSQL password.
+
+### 4. Create the database
+
+Run inside the PostgreSQL terminal:
+
+```sql
+CREATE DATABASE phishguard_db;
+```
+
+List databases:
+
+```sql
+\l
+```
+
+Exit:
+
+```sql
+\q
+```
+
+**Note:** If your application already uses another database name, use the configured name instead.
+
+## ⚙️ Backend Setup
+
+### 5. Navigate to the backend
+
+```powershell
+cd "$HOME\OneDrive\Documents\phishguard-fullstack\backend"
+```
+
+### 6. Create a virtual environment
+
+```powershell
+python -m venv .venv
+```
+
+### 7. Activate the environment
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+### 8. Install dependencies
+
+```powershell
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 9. Configure environment variables
+
+Create or update the backend `.env` file according to the variable names used in your code.
+
+Example:
+
+```env
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_NAME=phishguard_db
+DB_USER=postgres
+DB_PASSWORD=YOUR_POSTGRES_PASSWORD
+```
+
+Replace the password placeholder with your local PostgreSQL password. Never upload real credentials to GitHub.
+
+### 10. Start the backend
+
+For a FastAPI application defined as `app` inside `main.py`:
+
+```powershell
+python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Backend URL:
+
+http://127.0.0.1:8000
+
+API documentation:
+
+http://127.0.0.1:8000/docs
+
+## 🌐 Frontend Setup
+
+Open a **new PowerShell terminal**.
+
+### 11. Navigate to the frontend
+
+```powershell
+cd "$HOME\OneDrive\Documents\phishguard-fullstack\frontend"
+```
+
+### 12. Install dependencies
+
+```powershell
+npm install
+```
+
+### 13. Start the frontend
+
+For a Vite-based application:
+
+```powershell
+npm run dev
+```
+
+Open the local URL printed in the terminal, commonly:
+
+http://localhost:5173
+
+For another frontend framework, use the start command defined in its `package.json`.
+
+## ▶️ Run the Complete Project
+
+**Terminal 1 — Backend**
+
+```powershell
+cd "$HOME\OneDrive\Documents\phishguard-fullstack\backend"
+.\.venv\Scripts\Activate.ps1
+python -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
+```
+
+**Terminal 2 — Frontend**
+
+```powershell
+cd "$HOME\OneDrive\Documents\phishguard-fullstack\frontend"
+npm run dev
+```
+
+Ensure PostgreSQL is running before starting the application.
+
+## 🧪 Testing
+
+1. Open the frontend in your browser.
+2. Enter a URL in the URL analysis field.
+3. Submit it for assessment.
+4. Review the detection result and risk score.
+5. Check the risk classification and recommendations.
+6. Verify the API responses using `/docs`, if available.
+
+Use safe test URLs or an approved dataset. Do not open suspicious URLs directly.
+
+## 🔧 Troubleshooting
+
+### package.json not found
+
+```powershell
+Get-Location
+Get-ChildItem
+```
+
+Navigate to the folder containing `package.json`.
+
+### Backend dependency errors
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+### PostgreSQL connection error
+
+Check the service:
+
+```powershell
+Get-Service *postgres*
+```
+
+Verify the database credentials and port.
+
+### Port 8000 already in use
+
+```powershell
+netstat -ano | findstr :8000
+```
+
+Check the process ID before stopping any process.
 # PhishGuard
 Phishing Attack Detection and Risk Assessment System
 
